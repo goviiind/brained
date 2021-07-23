@@ -11,6 +11,9 @@ import axios from "axios";
 export const getProfile = (userId) => async (dispatch) => {
   try {
     const res = await axios.get(`${ip}/profile`, userId);
+
+    console.log(res.data);
+
     dispatch({
       type: GET_PROFILES,
       payload: res.data,
