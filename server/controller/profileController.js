@@ -29,28 +29,24 @@ const User = require("../models/User")
 
             console.log("Create Profile")
 
-             try{
-                 console.log(req.body);
+             try {
+               const { userId, technology, experience } = req.body;
 
-                 const { userId, technology, experience } = req.body;
+               const user = await User.findById({ _id: userId });
 
+               const newSkill = {
+                 technology,
+                 experience,
+               };
 
-                const user = await User.findById({_id :userId})
+               user.skills.unshift(newSkill);
 
-                const newSkill = {
-                    technology,
-                    experience,
-                }
+               await user.save();
 
-              user.skills.unshift(newSkill)
-
-              await user.save()
-
-                res.json(user.skills)
-
-             }catch(err){
-                console.log(err.message)
-                res.send("Server Error")
+               res.json(user.skills);
+             } catch (err) {
+               console.log(err.message);
+               res.send("Server Error");
              }
          } ,
 

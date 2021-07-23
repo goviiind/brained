@@ -17,6 +17,7 @@ export default (state = initial_state, action) => {
 
   switch (type) {
     case GET_PROFILES:
+    case ADD_PROFILES:
       return {
         ...state,
         profiles: payload,
@@ -28,11 +29,9 @@ export default (state = initial_state, action) => {
         ...state,
         profiles: null,
         loading: false,
-        error: payload,
+        errror: payload,
       };
     default:
-      return {
-        state,
-      };
+      return state;
   }
 };

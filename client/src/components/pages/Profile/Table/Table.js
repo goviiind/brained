@@ -4,16 +4,19 @@ import TableRow from "./TableRow";
 import { getProfile } from "../../../../redux/actions/profileActions";
 import { connect } from "react-redux";
 
+
 const Table = ({ auth, profiles, getProfile }) => {
+  const userId = auth?.user?._id;
+
   useEffect(() => {
-    getProfile(auth?.state?.user?._id);
+    getProfile(userId);
   }, []);
 
   return (
     <table>
       <TableHeading />
 
-      {auth?.state?.user?.skills.map((skill, index) => {
+      {auth?.user?.skills.map((skill, index) => {
         return (
           <TableRow
             srNo={index + 1}

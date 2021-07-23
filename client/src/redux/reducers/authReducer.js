@@ -3,7 +3,6 @@ import { REGISTER_USER, LOGIN_USER, AUTH_ERROR } from "../actions/types";
 const initial_state = {
   user: null,
   loading: true,
-  errors: null,
 };
 
 export default (state = initial_state, action) => {
@@ -28,13 +27,11 @@ export default (state = initial_state, action) => {
       return {
         ...state,
         user: null,
-        errors: payload,
+
         loading: false,
       };
 
     default:
-      return {
-        state,
-      };
+      return state;
   }
 };

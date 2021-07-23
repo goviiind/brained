@@ -3,6 +3,8 @@ import { Modal, ModalBody, InputGroup, Input } from "reactstrap";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { deleteProfile } from "../../../../redux/actions/profileActions";
+import { connect } from "react-redux";
 
 const schema = yup.object().shape({
   technology: yup.string().required(),

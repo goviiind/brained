@@ -13,7 +13,7 @@ const schema = yup.object().shape({
   experience: yup.string().required(),
 });
 const Profile = ({ auth, addProfile }) => {
-  const userId = auth?.state?.user?._id;
+  const userId = auth?.user?._id;
 
   const [modal, setModal] = useState(false);
 
