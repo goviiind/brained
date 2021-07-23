@@ -9,7 +9,7 @@ const schema = yup.object().shape({
   experience: yup.string().required(),
 });
 
-const TableRow = ({ auth, profiles }) => {
+const TableRow = ({ srNo, technology, experience, updatedAt }) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -28,10 +28,10 @@ const TableRow = ({ auth, profiles }) => {
   return (
     <>
       <tr>
-        <td>1</td>
-        <td>Reactjs</td>
-        <td>6 Months</td>
-        <td>12-06-2020</td>
+        <td>{srNo}</td>
+        <td>{technology}</td>
+        <td>{experience} Years</td>
+        <td>{updatedAt}</td>
         <td>
           <i class="fas fa-edit" onClick={toggle}></i>
           <i class="fas fa-trash-alt"></i>

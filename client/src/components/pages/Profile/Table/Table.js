@@ -9,12 +9,20 @@ const Table = ({ auth, profiles, getProfile }) => {
     getProfile(auth?.state?.user?._id);
   }, []);
 
-  console.log(profiles);
-
   return (
     <table>
       <TableHeading />
-      <TableRow auth={auth} profiles={profiles} />
+
+      {auth?.state?.user?.skills.map((skill, index) => {
+        return (
+          <TableRow
+            srNo={index + 1}
+            technology={skill.technology}
+            experience={skill.experience}
+            updatedAt={skill.date}
+          />
+        );
+      })}
     </table>
   );
 };

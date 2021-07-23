@@ -30,10 +30,10 @@ const User = require("../models/User")
             console.log("Create Profile")
 
              try{
-                
-                const { userId , technology , experience } = req.body
+                 console.log(req.body);
 
-                console.log(userId);
+                 const { userId, technology, experience } = req.body;
+
 
                 const user = await User.findById({_id :userId})
 

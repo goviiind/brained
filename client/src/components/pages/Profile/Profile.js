@@ -14,7 +14,7 @@ const schema = yup.object().shape({
 });
 const Profile = ({ auth, addProfile }) => {
   const userId = auth?.state?.user?._id;
-  console.log(userId);
+
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);

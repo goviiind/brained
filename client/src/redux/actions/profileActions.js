@@ -23,14 +23,14 @@ export const getProfile = (userId) => async (dispatch) => {
   }
 };
 
-export const addProfile = (userId, formData) => async (dispatch) => {
+export const addProfile = (formData, userId) => async (dispatch) => {
   try {
     const { technology, experience } = formData;
 
     const body = {
-      userId,
       technology,
       experience,
+      userId,
     };
 
     const res = await axios.post(`${ip}/profile`, body);
