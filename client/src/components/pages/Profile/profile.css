@@ -1,0 +1,117 @@
+.profile-div{
+    padding: 2rem;
+
+
+}
+
+.profile-div h4{
+    color : gray
+}
+
+.modal h6{
+    font-weight: 700;
+}
+
+/* ====================
+Profile Header Styles 
+=====================*/
+
+.profile-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-header button{
+    outline: none;
+    border : none;
+    background: #0371e3;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+
+.profile-header button:hover{
+    opacity: 0.7;
+}
+
+
+/* ====================
+Profile Modal Styles 
+=====================*/
+
+.add-btn , .cancel-btn{ 
+    outline: none;
+    border : none;
+ 
+    color: #fff;
+    padding: 0.5rem 2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    margin: 1rem 0;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.add-btn{
+    background: #0371e3;
+}
+
+.cancel-btn{
+    background: #df4759;
+}
+
+.add-btn:hover , .cancel-btn:hover{
+    opacity: 0.7;
+}
+
+
+/* ====================
+Profile Table Styles 
+=====================*/
+
+.profile-table table{
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+    box-shadow: 10px 10px 15px -10px rgba(0,0,0,0.75);
+    border-radius: 10px;
+}
+
+
+.profile-table table th, .profile-table table td{
+    width: 100px ;
+    padding: 0.5rem 0;
+}
+
+
+.profile-table table th{
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    background: #f1f5f6;
+ 
+
+}
+
+
+.profile-table table td{
+    border-bottom: 1px solid #bbb;
+}
+
+.profile-table table td i{
+    font-size: 1.2rem;
+    cursor: pointer;
+} 
+
+.fa-trash-alt{
+    color : rgb(228, 76, 76);
+}
+
+.fa-edit{
+    color : #0371e3;
+    margin-right : 1rem;
+}
