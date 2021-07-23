@@ -46,3 +46,49 @@ export const addProfile = (userId, formData) => async (dispatch) => {
     });
   }
 };
+
+export const updateProfile =
+  (userId, skillId, formData) => async (dispatch) => {
+    try {
+      const { technology, experience } = formData;
+
+      const body = {
+        userId,
+        skillId,
+        technology,
+        experience,
+      };
+
+      const res = await axios.put(`${ip}/profile`, body);
+      dispatch({
+        type: UPDATE_PROFILES,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: err.response,
+      });
+    }
+  };
+
+export const deleteProfile = (userId, skillId) => async (dispatch) => {
+  try {
+    const body = {
+      userId,
+      skillId,
+    };
+
+    const res = await axios.delete(`${ip}/profile`, body);
+
+    dispatch({
+      type: DELETE_PROFILES,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: err.response,
+    });
+  }
+};
