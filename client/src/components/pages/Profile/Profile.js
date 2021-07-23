@@ -5,12 +5,16 @@ import { Modal, ModalBody, InputGroup, Input } from "reactstrap";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { addProfile } from "../../../redux/actions/profileActions";
+import { connect } from "react-redux";
 
 const schema = yup.object().shape({
   technology: yup.string().required(),
   experience: yup.string().required(),
 });
-const Profile = () => {
+const Profile = ({ auth, addProfile }) => {
+  const userId = auth?.state?.user?._id;
+  console.log(userId);
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -24,7 +28,7 @@ const Profile = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    addProfile(data, userId);
   };
   return (
     <div className="profile-div">
@@ -67,4 +71,10 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps, { addProfile })(Profile);

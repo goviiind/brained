@@ -9,7 +9,7 @@ const schema = yup.object().shape({
   experience: yup.string().required(),
 });
 
-const TableRow = () => {
+const TableRow = ({ auth, profiles }) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);

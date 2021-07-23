@@ -33,7 +33,7 @@ const User = require("../models/User")
                 
                 const { userId , technology , experience } = req.body
 
-            
+                console.log(userId);
 
                 const user = await User.findById({_id :userId})
 
