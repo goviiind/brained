@@ -10,6 +10,14 @@ export const registerUser = (formData) => async (dispatch) => {
       type: REGISTER_USER,
       payload: res.data,
     });
+
+    if (!res.data.error) {
+      window.alert("Registration Successful");
+    }
+
+    
+
+
   } catch (err) {
     dispatch({
       type: AUTH_ERROR,

@@ -1,6 +1,6 @@
 import React from "react";
 import "./auth.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -13,6 +13,8 @@ const schema = yup.object().shape({
 });
 
 const Login = ({ auth, loginUser }) => {
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -22,13 +24,13 @@ const Login = ({ auth, loginUser }) => {
   });
 
   const onSubmit = (data) => {
-    loginUser(data);
+    loginUser(data, history);
   };
 
   return (
     <div className="auth-container">
       <div className="auth-form">
-        <p className="error">{auth?.errors?.error}</p>
+        <p className="error">{auth?.errors?.data.error}</p>
         <h3>Login</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input {...register("email")} placeholder="Email" /> <br />
